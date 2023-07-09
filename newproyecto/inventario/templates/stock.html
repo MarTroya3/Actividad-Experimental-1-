@@ -1,0 +1,32 @@
+{% extends "principal.html" %}
+{% block contentido %}
+
+  <h3>Lista de Entidades de inventarios</h3>
+  <p><b>Número de inventarios: ({{numero_entidades}})</b> </p>
+  <table id="tabla_datos">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Siglas</th>
+      <th>Numero de tiendas</th>
+      <th>Ciudad</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for stock in mis_entidades  %}
+      <tr>
+        <td>{{stock.nombre}}</td>
+        <td>{{stock.siglas}}</td>
+        <td>{{stock.numero_tienda}}</td>
+        <td>{{stock.ciudad}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </tbody>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          $('#tabla_datos').DataTable();
+        });
+    </script>
+{% endblock %}
